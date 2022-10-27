@@ -25,7 +25,7 @@ If you find this work helpful for your research, please cite this repository:
 
 ```
 @misc{erl,
-  author = {Liu, Shuo and Zhexin, Wang and Chen, Liri},
+  author = {Liu, Shuo and Wang, Zhexin and Chen, Liri},
   title = {},
   year = {2022},
   publisher = {GitHub},
