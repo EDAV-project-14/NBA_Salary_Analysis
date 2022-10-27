@@ -1,6 +1,6 @@
 --- 
-title: "YOUR TITLE HERE"
-author: "YOUR NAMES HERE"
+title: "NBA Salary Predictor"
+author: "Shuo Liu, Zhexin Wang, Liri Chen"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 ---
