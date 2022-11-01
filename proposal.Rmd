@@ -2,15 +2,15 @@
 
 ## Research topic
 
-In sports leagues, the salary differences between players tend to be huge. Superstars earn hundreds of times as much as regular players. However, some players have been paid salaries that do not match their abilities. How to evaluate a player's deserving salary based on his contribution on the field is the question that our project wants to explore. In our project, we focused on the NBA league and obtained the latest player stats for the last few seasons from Basketball Reference. Our goal is to work as data scientists to develop reasonable salary plans for NBA team owners.
+In sports leagues, there tends to be huge gaps in the salaries among different players. Some superstars may earn hundreds of times as much as other regular players. On the other hand, some players may have been paid salaries that do not match their abilities. Our group decided to explore and evaluate a player’s deserving salary based on his contribution to the field. In our project, we will focus on the NBA league and obtain the latest player statistics for the last few seasons from the Basketball Reference. Our goal is to work as data scientists to develop reasonable salary plans for NBA team owners.
 
 ## Data availability
 
-Our data source is [BasketBall Reference](https://www.basketball-reference.com/), a website serving up NBA and WNBA stats and history. BasketBall Reference keeps pace with the times, updates the daily data and saves all the historical data since the creation of the NBA.
+Our data source is from [BasketBall Reference](https://www.basketball-reference.com/), a website serving up NBA and WNBA statistics and history. BasketBall Reference keeps pace with the times, updates the daily data and saves all the historical data since the creation of the NBA.
 
 ### Season summary
 
-In this website, we will obtain our roster and player statics dataset from the [season summary](https://www.basketball-reference.com/leagues/) page, which records the conference standings, division standings, playoff series, per game statics, and advanced stats. We will join these tables to measure the overall performance of the player. 
+From this website, we will obtain our roster and player statics dataset from the [season summary](https://www.basketball-reference.com/leagues/) page, which records the conference standings, division standings, playoff series, per game statics, and advanced stats. We will join these tables to measure the overall performance of the players. 
 
 | Award Winners | Top Performers |                       |                  |                    |                  |                 |                    |                  |
 | :------------ | :------------: | :-------------------: | :--------------: | :----------------: | :--------------: | :-------------: | :----------------: | :--------------: |
@@ -20,12 +20,12 @@ In this website, we will obtain our roster and player statics dataset from the [
 | 2020-21       |      NBA       |    Milwaukee Bucks    |     N. Jokić     |      L. Ball       | S. Curry (2015)  | R. Gobert (960) | R. Westbrook (763) | N. Jokić (15.6)  |
 | 2019-20       |      NBA       |  Los Angeles Lakers   | G. Antetokounmpo |     J. Morant      | J. Harden (2335) | R. Gobert (916) |   L. James (684)   | J. Harden (13.1) |
 
-Note that this is just a rough measurement of player performance, because some players' value cannot be simply reflected by data. And another assumption underlying is that the games are equally weighted, we ignore the bias of some more important games.
+Note that this is just a rough measurement of player performance, because some players' value cannot be simply reflected by the data. And another assumption underlying is that the games are equally weighted, we ignore the bias of some more important games.
 
 
 ### Contract
 
-Players' income are stored in [contracts](https://www.basketball-reference.com/contracts/players.html), which includes the salaries of NBA players. For example, the largest contracts in the leaderboard are:
+Players' income data is stored in [contracts](https://www.basketball-reference.com/contracts/players.html), which includes the salaries of NBA players. For example, the largest contracts in the leaderboard are:
 
 |      | Salary            |      |             |             |             |             |         |         |              |
 | ---: | :---------------- | :--- | :---------: | :---------: | :---------: | :---------: | :-----: | :-----: | -----------: |
@@ -36,6 +36,5 @@ Players' income are stored in [contracts](https://www.basketball-reference.com/c
 |    4 | Kevin Durant      | BRK  | $44,119,845 | $47,649,433 | $51,179,021 | $54,708,609 |         |         | $197,656,908 |
 
 
-### Micellenous 
+### Miscellaneous 
 
-Basketball Reference also provides some other data, like playoff teams, team winning rate, salary caps, player agent company, and etc. But we assume the player salaries are not effected by these external factors, and they are only determined by players' performance on the court.
