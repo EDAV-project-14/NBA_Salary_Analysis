@@ -22,7 +22,7 @@ From this website, we will obtain our roster and player statics dataset from the
 | 2020-21       |      NBA       |    Milwaukee Bucks    |     N. Jokić     |      L. Ball       | S. Curry (2015)  | R. Gobert (960) | R. Westbrook (763) | N. Jokić (15.6)  |
 | 2019-20       |      NBA       |  Los Angeles Lakers   | G. Antetokounmpo |     J. Morant      | J. Harden (2335) | R. Gobert (916) |   L. James (684)   | J. Harden (13.1) |
 
-Note that this is just a rough measurement of player performance, because some players' value cannot be simply reflected by the data. And another assumption underlying is that the games are equally weighted, we ignore the bias of some more important games.
+Note that this is just a rough measurement of player performance, because some players' value cannot be simply reflected by the data. Another assumption underlying is that the games are equally weighted, and we are ignoring the bias of some more important games.
 
 
 ### Contract
@@ -40,3 +40,4 @@ Players' income data is stored in [contracts](https://www.basketball-reference.c
 
 ### Miscellaneous 
 
+The Basketball Reference also provides some other data, such as playoff teams, team winning rate, salary caps, player agent company, and etc. In the project, we assume the player salaries are not affected by these external factors, and they are only determined by players' performance on the court.
