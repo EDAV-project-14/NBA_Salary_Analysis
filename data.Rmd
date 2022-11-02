@@ -2,7 +2,16 @@
 
 ## Sources
 
+We scrape our data from the [BasketBall Reference](https://www.basketball-reference.com/), where we focus on players' performance in these aspects, `rank`，`player`，`position`，`age`，`team`，`start games`，`field goals`，`field attempts`，`field precision`，`3-points`，`3-points attemps`，`3-points precision`，`2-points`，`2-points attemps`，`2-points precision`，`free-throws`，`free-throws attemps`，`free-throws precision`，`rebounds`，`assists`，`steals`，`blocks`，`turnovers`，`fouls` and `points per game`. For their salaries, Basketball Reference doesn't provide the historical archive, so we use the mean of the current contracts as evaluator, ignoring the guaranteed. Here are the brief summary of player statics and contracts. 
+
+<!--to add a demo showing the data summary-->
+
 ## Cleaning / transformation
 
+<!--how to left join, names, team-->
+
 ## Missing value analysis
+
+<!--to numeric, isnan, change team issue-->
+
 
