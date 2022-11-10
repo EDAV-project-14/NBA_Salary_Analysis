@@ -6,9 +6,9 @@ In sports leagues, there tends to be huge gaps in the salaries among different p
 
 ## Data availability
 
-Our data source is from the [BasketBall Reference](https://www.basketball-reference.com/), a website serving up NBA and WNBA statistics, scores and history. The BasketBall Reference keeps pace with the times, updates the daily data and saves all the historical data since the creation of the NBA. The BasketBall Reference is using the official NBA data, and the data is provided by SportRadar, the official statistics provider of the NBA. Since the data is from the website in an unstructured format, we will scrape the website (specifically from the season summary and the contracts section) and store the data in csv files using rvest.
+Our data source is from the [BasketBall Reference](https://www.basketball-reference.com/), a website serving up NBA and WNBA statistics, scores and history. The BasketBall Reference keeps pace with the times, updates the daily data and saves all the historical data since the creation of the NBA. The BasketBall Reference is using the official NBA data, and the data is provided by SportRadar, the official statistics provider of the NBA. Some of the data are provided in csv format already, while others are unstructured and requires web scraping to be transformed into csv tables.
 
-Since we wanted to explore the data from latest five years, we need to aggregate data from multiple pages. To import data, we utilized a loop function to scrape the data from multiple pages and collected the HTML data. Then we extracted column headers and rows, and added “year” as a column. After that, we created dataframe and exported to csv. Lastly, we combined all the data tables using the join function.
+Since we wanted to explore the data from latest five years, we also need to aggregate data from multiple pages. To import data, we utilized a loop function to scrape the data from multiple pages and collected the HTML data. Then we extracted column headers and rows, and added “year” as a column. After that, we created dataframe and exported to csv. Lastly, we combined all the data tables using the join function.
 
 ### Season summary
 
