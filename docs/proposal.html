@@ -23,7 +23,7 @@
 <meta name="author" content="Shuo Liu, Zhexin Wang, Liri Chen" />
 
 
-<meta name="date" content="2022-11-01" />
+<meta name="date" content="2022-11-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -119,8 +119,8 @@
 </div>
 <div id="data-availability" class="section level2 hasAnchor" number="2.2">
 <h2><span class="header-section-number">2.2</span> Data availability<a href="proposal.html#data-availability" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Our data source is from the <a href="https://www.basketball-reference.com/">BasketBall Reference</a>, a website serving up NBA and WNBA statistics, scores and history. The BasketBall Reference keeps pace with the times, updates the daily data and saves all the historical data since the creation of the NBA. The BasketBall Reference is using the official NBA data, and the data is provided by SportRadar, the official statistics provider of the NBA. Since the data is from the website in an unstructured format, we will scrape the website (specifically from the season summary and the contracts section) and store the data in csv files using rvest.</p>
-<p>Since we wanted to explore the data from latest five years, we need to aggregate data from multiple pages. To import data, we utilized a loop function to scrape the data from multiple pages and collected the HTML data. Then we extracted column headers and rows, and added “year” as a column. After that, we created dataframe and exported to csv. Lastly, we combined all the data tables using the join function.</p>
+<p>Our data source is from the <a href="https://www.basketball-reference.com/">BasketBall Reference</a>, a website serving up NBA and WNBA statistics, scores and history. The BasketBall Reference keeps pace with the times, updates the daily data and saves all the historical data since the creation of the NBA. The BasketBall Reference is using the official NBA data, and the data is provided by SportRadar, the official statistics provider of the NBA. Some of the data are provided in csv format already, while others are unstructured and requires web scraping to be transformed into csv tables.</p>
+<p>Since we wanted to explore the data from latest five years, we also need to aggregate data from multiple pages. To import data, we utilized a loop function to scrape the data from multiple pages and collected the HTML data. Then we extracted column headers and rows, and added “year” as a column. After that, we created dataframe and exported to csv. Lastly, we combined all the data tables using the join function.</p>
 <div id="season-summary" class="section level3 hasAnchor" number="2.2.1">
 <h3><span class="header-section-number">2.2.1</span> Season summary<a href="proposal.html#season-summary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>From this website, we will obtain our roster and player statics dataset from the <a href="https://www.basketball-reference.com/leagues/">season summary</a> page, which records the conference standings, division standings, playoff series, per game statics, and advanced stats. We will join these tables to measure the overall performance of the players.</p>
