@@ -1,1 +1,143 @@
 # Results
+
+Cleveland dot plot
+
+```{r, fig.height=30, fig.width=8}
+data_merged_order <- data_merged[order(-data_merged$SalaryMean),]
+
+library(Lock5withR)
+ggplot(data_merged_order, aes(x = SalaryMean, y = fct_reorder(player, SalaryMean))) +
+  geom_point(color = "steelblue") +
+  ggtitle("Player's salary") +
+  xlab("Contract Salary Mean")+
+  ylab("") +
+  theme_linedraw()
+```
+
+QQ plot (Shapiro-Wilk normality test)
+
+```{r}
+x <- data_merged$SalaryMean
+qqnorm(x, col="steelblue")
+qqline(x, col="lightblue")
+shapiro.test(x)
+```
+
+Mosaic plot
+
+```{r}
+data_merged_salary_category <- data_merged %>% 
+  mutate(SalaryCategory = cut(SalaryMean, 
+                              breaks = c(0, 6339080, 31322024, 100000000), 
+                              labels = c('Low', 'Middle', 'High')) ) %>%
+  mutate(freq=1)
+colors <- c("#ff99ff", "#cc9966") 
+counts <- data_merged_salary_category %>%
+  group_by(SalaryCategory, age) %>%
+  summarize(freq = sum(freq)) %>%
+  pivot_wider(names_from = age, values_from = freq) %>%
+  column_to_rownames(., var = 'SalaryCategory')
+#vcd::mosaic(SalaryCategory ~ age, counts, direction = c("v", "h"),
+          #  highlighting_fill = colors)
+mosaicplot(counts, main="Mosaic Plot - Salary vs Age",
+           xlab = "Salary", ylab = "Age")
+```
+
+Chi-square
+
+```{r, warning=FALSE}
+X <- chisq.test(counts, correct = FALSE)
+X$observed
+X$expected
+X
+```
+
+Boxplot
+
+```{r}
+ggplot(data_merged, aes(x=age, y=SalaryMean)) +
+  geom_boxplot() +
+  coord_flip() +
+  ggtitle("Salary by Age") +
+  labs(y="Salary Mean", x="Age")
+```
+
+Ridgeline plot
+
+```{r}
+ggplot(data_merged, aes(x = SalaryMean, y = team)) +
+  geom_density_ridges(fill = "lightblue") +
+  ggtitle("Salary by Team") +
+  labs(y="Salary Mean", x="Team")
+```
+
+Parallel coordinate plot
+
+```{r}
+library(GGally)
+
+ggparcoord(data_merged, columns=c(2:13,16),
+           title = "Parallel coordinate plot for player stats", alpha = 0.08)+
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+```
+
+PCA
+
+```{r}
+#Here column age and team are removed;
+data_merged_con <- data_merged %>% 
+  select(c(1:13, 16)) %>% replace(is.na(.), 0)
+
+#The rest of dataset is scaled 
+scaled_data_merged_con <- data_merged_con %>%
+  mutate(across(where(is.numeric), ~round((.x-mean(.x))/sd(.x), 2)))
+
+pca <- prcomp(scaled_data_merged_con[,2:14], scale. = TRUE)
+
+mat_round <- function(matrix, n = 7) apply(matrix, 2, function(x) round(x, n))
+```
+
+```{r, fig.height=8, fig.width=8}
+draw_biplot(data_merged_con)
+```
+
+Scatterplot - avg point vs salary
+
+```{r}
+ggplot(data_merged, aes(avg_points_per_game, SalaryMean)) +  
+  geom_point(col="steelblue") + 
+  geom_smooth(col="lightblue") +
+  theme_grey(18)
+```
+
+Scatterplot - sum game vs salary mean
+
+```{r}
+ggplot(data_merged, aes(sum_games, SalaryMean)) +  
+  geom_point(col="steelblue") +  
+  #geom_smooth() +
+  #scale_colour_brewer(palette = "Dark2") +
+  facet_wrap(data_merged$age)+
+  theme_grey(18)
+```
+
+Heatmap
+
+```{r}
+ggplot(data_merged, aes(x = team, y = age)) +
+  geom_tile(aes(fill = SalaryMean), color = "white") +
+  coord_fixed() + 
+  scale_fill_gradient2(low = "black", mid = "white",
+                        high = "steelblue", midpoint = .2)+
+  theme(axis.text.x=element_text(angle=45, vjust=1, hjust=1))
+```
+
+
+
+
+
+
+
+
+
+

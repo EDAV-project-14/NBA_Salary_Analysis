@@ -140,7 +140,7 @@ plot_missing(player_stats_clean1)
 
 Missing Value Heatmap clean data
 
-```{r, fig.height=15, fig.width=8}
+```{r, fig.height=30, fig.width=8}
 #Missing value heatmap of the merged data:
 tidy_player_stats2 <- data_merged %>% 
     gather(key, value, -player) %>% 
