@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Exploratory Data Analysis on NBA Salary</title>
-  <meta name="description" content="Exploratory Data Analysis on NBA Salary" />
+  <title>Chapter 5 Parallel Coordinate Plot | NBA Salary Predictor</title>
+  <meta name="description" content="Chapter 5 Parallel Coordinate Plot | NBA Salary Predictor" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Exploratory Data Analysis on NBA Salary" />
+  <meta property="og:title" content="Chapter 5 Parallel Coordinate Plot | NBA Salary Predictor" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Exploratory Data Analysis on NBA Salary" />
+  <meta name="twitter:title" content="Chapter 5 Parallel Coordinate Plot | NBA Salary Predictor" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="proposal.html"/>
+<link rel="prev" href="results.html"/>
+<link rel="next" href="interactive-component.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -96,14 +96,16 @@
 <li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#relationship-between-player-contract-salary-mean-and-age-mosaic-plot"><i class="fa fa-check"></i><b>4.3</b> Relationship between Player Contract Salary Mean and Age (Mosaic plot)</a></li>
 <li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#relationship-between-player-contract-salary-mean-and-age-boxplot"><i class="fa fa-check"></i><b>4.4</b> Relationship between Player Contract Salary Mean and Age (Boxplot)</a></li>
 <li class="chapter" data-level="4.5" data-path="results.html"><a href="results.html#player-contract-salary-mean-for-different-teams-ridgeline-plot"><i class="fa fa-check"></i><b>4.5</b> Player Contract Salary Mean for Different Teams (Ridgeline plot)</a></li>
-<li class="chapter" data-level="4.6" data-path="results.html"><a href="results.html#parallel-coordinate-plot"><i class="fa fa-check"></i><b>4.6</b> Parallel Coordinate Plot</a></li>
-<li class="chapter" data-level="4.7" data-path="results.html"><a href="results.html#player-contract-salary-mean-vs-all-continuous-player-statistics-pca"><i class="fa fa-check"></i><b>4.7</b> Player Contract Salary Mean vs All Continuous Player Statistics (PCA)</a></li>
-<li class="chapter" data-level="4.8" data-path="results.html"><a href="results.html#average-points-per-game-vs-player-contract-salary-mean-scatterplot"><i class="fa fa-check"></i><b>4.8</b> Average Points per Game vs Player Contract Salary Mean (Scatterplot)</a></li>
-<li class="chapter" data-level="4.9" data-path="results.html"><a href="results.html#player-contract-salary-mean-vs-total-number-of-games-conditioning-on-age-group-multi-facets-scatterplot"><i class="fa fa-check"></i><b>4.9</b> Player Contract Salary Mean vs Total Number of Games Conditioning on Age Group (Multi-facets Scatterplot)</a></li>
-<li class="chapter" data-level="4.10" data-path="results.html"><a href="results.html#player-contract-salary-mean-vs-team-and-age-group-heatmap"><i class="fa fa-check"></i><b>4.10</b> Player Contract Salary Mean vs Team and Age Group (Heatmap)</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive component</a></li>
-<li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
+<li class="chapter" data-level="5" data-path="parallel-coordinate-plot.html"><a href="parallel-coordinate-plot.html"><i class="fa fa-check"></i><b>5</b> Parallel Coordinate Plot</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="parallel-coordinate-plot.html"><a href="parallel-coordinate-plot.html#player-contract-salary-mean-vs-all-continuous-player-statistics-pca"><i class="fa fa-check"></i><b>5.1</b> Player Contract Salary Mean vs All Continuous Player Statistics (PCA)</a></li>
+<li class="chapter" data-level="5.2" data-path="parallel-coordinate-plot.html"><a href="parallel-coordinate-plot.html#average-points-per-game-vs-player-contract-salary-mean-scatterplot"><i class="fa fa-check"></i><b>5.2</b> Average Points per Game vs Player Contract Salary Mean (Scatterplot)</a></li>
+<li class="chapter" data-level="5.3" data-path="parallel-coordinate-plot.html"><a href="parallel-coordinate-plot.html#player-contract-salary-mean-vs-total-number-of-games-conditioning-on-age-group-multi-facets-scatterplot"><i class="fa fa-check"></i><b>5.3</b> Player Contract Salary Mean vs Total Number of Games Conditioning on Age Group (Multi-facets Scatterplot)</a></li>
+<li class="chapter" data-level="5.4" data-path="parallel-coordinate-plot.html"><a href="parallel-coordinate-plot.html#player-contract-salary-mean-vs-team-and-age-group-heatmap"><i class="fa fa-check"></i><b>5.4</b> Player Contract Salary Mean vs Team and Age Group (Heatmap)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>6</b> Interactive component</a></li>
+<li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 </ul>
@@ -115,7 +117,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploratory Data Analysis on NBA Salary</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NBA Salary Predictor</a>
           </h1>
         </div>
 
@@ -123,24 +125,34 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Exploratory Data Analysis on NBA Salary</h1>
-<p class="author"><em>Shuo Liu, Zhexin Wang, Liri Chen</em></p>
-<p class="date"><em>2022-12-15</em></p>
+<div id="parallel-coordinate-plot" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Parallel Coordinate Plot<a href="parallel-coordinate-plot.html#parallel-coordinate-plot" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
+<div id="player-contract-salary-mean-vs-all-continuous-player-statistics-pca" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Player Contract Salary Mean vs All Continuous Player Statistics (PCA)<a href="parallel-coordinate-plot.html#player-contract-salary-mean-vs-all-continuous-player-statistics-pca" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-23-1.png" width="768" /></p>
 </div>
-<div id="introduction" class="section level1 hasAnchor" number="1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction<a href="index.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>As more and more people start to spend their free time watching NBA games, they become curious about the player statistics behind the scene, which is a powerful tool for predicting player performance and designing winning strategies as data analytics is revolutionizing the NBA. Facilitated by comprehensive and open-source NBA datasets, data analysts have the opportunity to dive deep into the player statistic data.</p>
-<p>Besides NBA players’ agency, audience are wondering whether there are any direct associations between their performances in the game and their salary. The NBA’s market capitalization has grown significantly in recent years, and that growth has fed back to the NBA stars, bringing an increase to the salary caps. Throughout this project, we work on the widely intriguing association between NBA players’ salary and performance. We want to explore which factors affect and contribute to the players’ salary the most, the variation in the salary of players among different age groups, and the divergence in the distribution of player salary levels between teams. In addition to these questions, we also seek to apply existing analysis to explore hidden information that is not directly presented in the data. By conducting exploratory data analysis and finding answers to those topics, we are hoping to provide the audience with useful information and help them to have a better understanding of the relationship between players’ performance and salary. We are expecting to provide practical and profitable suggestions for NBA team agencies to develop a reasonable salary plan.</p>
+<div id="average-points-per-game-vs-player-contract-salary-mean-scatterplot" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Average Points per Game vs Player Contract Salary Mean (Scatterplot)<a href="parallel-coordinate-plot.html#average-points-per-game-vs-player-contract-salary-mean-scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
+</div>
+<div id="player-contract-salary-mean-vs-total-number-of-games-conditioning-on-age-group-multi-facets-scatterplot" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Player Contract Salary Mean vs Total Number of Games Conditioning on Age Group (Multi-facets Scatterplot)<a href="parallel-coordinate-plot.html#player-contract-salary-mean-vs-total-number-of-games-conditioning-on-age-group-multi-facets-scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
+</div>
+<div id="player-contract-salary-mean-vs-team-and-age-group-heatmap" class="section level2 hasAnchor" number="5.4">
+<h2><span class="header-section-number">5.4</span> Player Contract Salary Mean vs Team and Age Group (Heatmap)<a href="parallel-coordinate-plot.html#player-contract-salary-mean-vs-team-and-age-group-heatmap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="proposal.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="results.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="interactive-component.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -171,7 +183,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/EDAV-project-14/NBA_Salary_Predictor/edit/main/index.Rmd",
+"link": "https://github.com/EDAV-project-14/NBA_Salary_Predictor/edit/main/results.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -179,7 +191,7 @@ gitbook.start({
 "text": null
 },
 "view": {
-"link": "https://github.com/EDAV-project-14/NBA_Salary_Predictor/blob/main/index.Rmd",
+"link": "https://github.com/EDAV-project-14/NBA_Salary_Predictor/blob/main/results.Rmd",
 "text": null
 },
 "download": null,

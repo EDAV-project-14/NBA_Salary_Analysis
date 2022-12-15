@@ -1,5 +1,5 @@
 --- 
-title: "NBA Salary Predictor"
+title: "Exploratory Data Analysis on NBA Salary"
 author: "Shuo Liu, Zhexin Wang, Liri Chen"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -7,4 +7,6 @@ site: bookdown::bookdown_site
 
 # Introduction
 
-In sports leagues, there tends to be huge gaps in the salaries among different players. Some superstars may earn hundreds of times as much as other regular players. On the other hand, some players may have been paid salaries that do not match their abilities. Our group decided to explore and evaluate a player’s deserving salary based on his contribution to the field. In our project, we will focus on the National Basketball Association (NBA) league and obtain the latest player statistics for the last few seasons from the Basketball Reference. Our goal is to work as data scientists to develop reasonable salary plans for NBA team owners based on historical statistics and data summary.
+As more and more people start to spend their free time watching NBA games, they become curious about the player statistics behind the scene, which is a powerful tool for predicting player performance and designing winning strategies as data analytics is revolutionizing the NBA. Facilitated by comprehensive and open-source NBA datasets, data analysts have the opportunity to dive deep into the player statistic data. 
+
+Besides NBA players’ agency, audience are wondering whether there are any direct associations between their performances in the game and their salary. The NBA's market capitalization has grown significantly in recent years, and that growth has fed back to the NBA stars, bringing an increase to the salary caps. Throughout this project, we work on the widely intriguing association between NBA players’ salary and performance. We want to explore which factors affect and contribute to the players’ salary the most, the variation in the salary of players among different age groups, and the divergence in the distribution of player salary levels between teams. In addition to these questions, we also seek to apply existing analysis to explore hidden information that is not directly presented in the data. By conducting exploratory data analysis and finding answers to those topics, we are hoping to provide the audience with useful information and help them to have a better understanding of the relationship between players’ performance and salary. We are expecting to provide practical and profitable suggestions for NBA team agencies to develop a reasonable salary plan.

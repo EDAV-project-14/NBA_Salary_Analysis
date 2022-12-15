@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Results | NBA Salary Predictor</title>
-  <meta name="description" content="Chapter 4 Results | NBA Salary Predictor" />
+  <title>Chapter 4 Results | Exploratory Data Analysis on NBA Salary</title>
+  <meta name="description" content="Chapter 4 Results | Exploratory Data Analysis on NBA Salary" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Results | NBA Salary Predictor" />
+  <meta property="og:title" content="Chapter 4 Results | Exploratory Data Analysis on NBA Salary" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Results | NBA Salary Predictor" />
+  <meta name="twitter:title" content="Chapter 4 Results | Exploratory Data Analysis on NBA Salary" />
   
   
   
@@ -89,7 +89,19 @@
 <li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#cleaning-transformation"><i class="fa fa-check"></i><b>3.2</b> Cleaning / transformation</a></li>
 <li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#missing-value-analysis"><i class="fa fa-check"></i><b>3.3</b> Missing value analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#player-contract-salary-mean-ranking-cleveland-dot-plot"><i class="fa fa-check"></i><b>4.1</b> Player Contract Salary Mean Ranking (Cleveland dot plot)</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#player-contract-salary-mean-distribution-q-q-plot-and-shapiro-wilk-normality-test"><i class="fa fa-check"></i><b>4.2</b> Player Contract Salary Mean Distribution (Q-Q plot and Shapiro-Wilk normality test)</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#relationship-between-player-contract-salary-mean-and-age-mosaic-plot"><i class="fa fa-check"></i><b>4.3</b> Relationship between Player Contract Salary Mean and Age (Mosaic plot)</a></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#relationship-between-player-contract-salary-mean-and-age-boxplot"><i class="fa fa-check"></i><b>4.4</b> Relationship between Player Contract Salary Mean and Age (Boxplot)</a></li>
+<li class="chapter" data-level="4.5" data-path="results.html"><a href="results.html#player-contract-salary-mean-for-different-teams-ridgeline-plot"><i class="fa fa-check"></i><b>4.5</b> Player Contract Salary Mean for Different Teams (Ridgeline plot)</a></li>
+<li class="chapter" data-level="4.6" data-path="results.html"><a href="results.html#parallel-coordinate-plot"><i class="fa fa-check"></i><b>4.6</b> Parallel Coordinate Plot</a></li>
+<li class="chapter" data-level="4.7" data-path="results.html"><a href="results.html#player-contract-salary-mean-vs-all-continuous-player-statistics-pca"><i class="fa fa-check"></i><b>4.7</b> Player Contract Salary Mean vs All Continuous Player Statistics (PCA)</a></li>
+<li class="chapter" data-level="4.8" data-path="results.html"><a href="results.html#average-points-per-game-vs-player-contract-salary-mean-scatterplot"><i class="fa fa-check"></i><b>4.8</b> Average Points per Game vs Player Contract Salary Mean (Scatterplot)</a></li>
+<li class="chapter" data-level="4.9" data-path="results.html"><a href="results.html#player-contract-salary-mean-vs-total-number-of-games-conditioning-on-age-group-multi-facets-scatterplot"><i class="fa fa-check"></i><b>4.9</b> Player Contract Salary Mean vs Total Number of Games Conditioning on Age Group (Multi-facets Scatterplot)</a></li>
+<li class="chapter" data-level="4.10" data-path="results.html"><a href="results.html#player-contract-salary-mean-vs-team-and-age-group-heatmap"><i class="fa fa-check"></i><b>4.10</b> Player Contract Salary Mean vs Team and Age Group (Heatmap)</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive component</a></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
 <li class="divider"></li>
@@ -103,7 +115,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NBA Salary Predictor</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploratory Data Analysis on NBA Salary</a>
           </h1>
         </div>
 
@@ -113,18 +125,26 @@
             <section class="normal" id="section-">
 <div id="results" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Results<a href="results.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p>Cleveland dot plot</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-15-1.png" width="768" /></p>
-<p>QQ plot (Shapiro-Wilk normality test)</p>
+<div id="player-contract-salary-mean-ranking-cleveland-dot-plot" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Player Contract Salary Mean Ranking (Cleveland dot plot)<a href="results.html#player-contract-salary-mean-ranking-cleveland-dot-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-15-1.png" width="768" />
+This figure presents a Cleveland dot plot for players and their contract salary mean, ordering from high to low. The graph shows that Stephen Curry has the highest salary of 95659328, followed by Devin Booker, with a contract salary mean of 90634700. On the other hand, D.J. Augustin has the lowest salary mean from our dataset.
+Additionally, we can observe a roughly right-skewed distribution of players’ salaries, with more players having below-average salary mean and fewer number of players with extremely high salaries.</p>
+</div>
+<div id="player-contract-salary-mean-distribution-q-q-plot-and-shapiro-wilk-normality-test" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Player Contract Salary Mean Distribution (Q-Q plot and Shapiro-Wilk normality test)<a href="results.html#player-contract-salary-mean-distribution-q-q-plot-and-shapiro-wilk-normality-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
 <pre><code>## 
 ##  Shapiro-Wilk normality test
 ## 
 ## data:  x
 ## W = 0.83822, p-value = 7.557e-16</code></pre>
-<p>Mosaic plot</p>
+<p>Since salary distribution is known to be normal in most cases, we want to look at the normality of contract salary mean distribution of the players naturally. By comparing the graphical impressions from the Q-Q plot with the result of the Shpiro-Wilk Test (p-value = 7.7557e-16, much smaller than 0.05 and it’s significant), we conclude that the salary distribution generated from our sample is not normally distributed at all. Instead, the distribution of the contract salary means of the players in our sample is heavily right-skewed according to the Q-Q plot, as the data points appear to be clustered in the lower quantile. This result, as expected, shows that the top NBA players are paid much more than other players, as the teams try to keep the best-performing players with higher contract salaries.</p>
+</div>
+<div id="relationship-between-player-contract-salary-mean-and-age-mosaic-plot" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Relationship between Player Contract Salary Mean and Age (Mosaic plot)<a href="results.html#relationship-between-player-contract-salary-mean-and-age-mosaic-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
-<p>Chi-square</p>
+<p><strong>Chi-square Test</strong></p>
 <pre><code>##        Young Middle Old
 ## Low       39     21   6
 ## Middle    54     71   5
@@ -138,21 +158,48 @@
 ## 
 ## data:  counts
 ## X-squared = 10.331, df = 4, p-value = 0.0352</code></pre>
-<p>Boxplot</p>
+<p>Here is a mosaic plot showing the relationship between age and salary. We first categorized the continuous salary variable by splitting it into three groups. The salaries within the ‘Low’, ‘Middle’, and ‘High’ groups are bounded by 25th, 75th, and 100th percentiles respectively. From this figure, we can conclude that among the middle class in the league, middle-aged and young players make up the main part. But in the lower salary category, there are more younger players, which is in line with the NBA’s rookies salary terms.</p>
+<p>For the Chi-square test, we got a p-value value of 0.03, which is less than the significance level of 0.05. This indicates there is sufficient evidence to conclude that the observed distribution is not the same as the expected distribution. Thus, it is reasonable to conclude an existing relationship between the categorical variables.</p>
+</div>
+<div id="relationship-between-player-contract-salary-mean-and-age-boxplot" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Relationship between Player Contract Salary Mean and Age (Boxplot)<a href="results.html#relationship-between-player-contract-salary-mean-and-age-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
-<p>Ridgeline plot</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-20-1.png" width="768" /></p>
-<p>Parallel coordinate plot</p>
+<p>This figure demonstrates a box plot of players’ salary distribution related to their age. We observed that the salary variances and distribution of each age category are similar. However, the old players (&gt;33 years old) have the lowest salary median, and the middle age players have more outliers. After examining, we found the outlier players are mostly eminent and well-known players, such as Stephen Curry and Lebron James. This indicates that famous players are more likely to have higher salaries.</p>
+</div>
+<div id="player-contract-salary-mean-for-different-teams-ridgeline-plot" class="section level2 hasAnchor" number="4.5">
+<h2><span class="header-section-number">4.5</span> Player Contract Salary Mean for Different Teams (Ridgeline plot)<a href="results.html#player-contract-salary-mean-for-different-teams-ridgeline-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-20-1.png" width="768" />
+Here is a ridgeline plot of players’ salaries grouped by the NBA teams. In most of the teams (HOU, ORL, SAS, etc), the salary distribution appears to be unimodal. We discovered that most of these uni-modal teams have not entered the playoffs in recent years, therefore it is reasonable to make a conclusion that this is because these teams do not have an absolute single or multiple core players.</p>
+<p>Furthermore, we chose some playoff teams and teams with superstars to examine their modality of salary mean. For LAL team led by Lebron James, Russel Westbrook and Anthony Davis, the salary is bimodal. Likewise, we observed a similar pattern for LAC team led by Paul George and Kawhi Leonard. However, for playoff team BOS, there is only one modal, this is because Jayson Tatum and Jaylen Brown are still young players, whose salaries might not be as high as the other eminent and experienced players.</p>
+<p>Another interesting finding is that the teams with relatively higher salaries have higher chances of entering the playoffs. This could be an indication that a higher salary can trigger better performance of the players.</p>
+</div>
+<div id="parallel-coordinate-plot" class="section level2 hasAnchor" number="4.6">
+<h2><span class="header-section-number">4.6</span> Parallel Coordinate Plot<a href="results.html#parallel-coordinate-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-21-1.png" width="672" /></p>
-<p>PCA</p>
-<p><img src="finalproj_files/figure-html/unnamed-chunk-23-1.png" width="768" /></p>
-<p>Scatterplot - avg point vs salary</p>
+<p>This figure shows a parallel coordinate plot using the ggparcoord() function, and it displays the relationship among the variables. From the plot, we can conclude a roughly positive relationship between <code>avg_points_per_game</code> and <code>SalaryMean</code>, and a roughly negative relationship between <code>avg_min_per_game</code> and <code>avg_field_goal_pct</code>.</p>
+</div>
+<div id="player-contract-salary-mean-vs-all-continuous-player-statistics-pca" class="section level2 hasAnchor" number="4.7">
+<h2><span class="header-section-number">4.7</span> Player Contract Salary Mean vs All Continuous Player Statistics (PCA)<a href="results.html#player-contract-salary-mean-vs-all-continuous-player-statistics-pca" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><img src="finalproj_files/figure-html/unnamed-chunk-23-1.png" width="768" />
+We generated a PCA graph using prcomp() function. We extracted the two most significant PCA features from those, which could explain roughly 60% importance of the final results. Stephen Curry is supposed to have the highest salary in our dataset, but the biplot above shows that he is not the most well-paid player. Thus we can’t fully rely on this plot itself. We observed that the salary has the strongest association with the number of games, average turnovers and average points per game, since their arrow lines are pointing to the same direction. This is intuitive because these variables are closely related to the possession of the ball in the game – important players tend to play more games and have more possession of the ball. On the other side, the average three points precision and average two points precision have the least correlation with the salary, as their arrow lines are perpendicular to salaries.</p>
+<p>Another interesting finding is that the inside players (center and power forward) are mostly distributed on the upper-right with more rebounds, and two pointers, e.g., DeAndre Jordan, Mitchell Robinson, JaVale McGee. Moreover, (Point guard, shooting guard , Small forward) are mostly distributed on the left-bottom, with more assists, steals and three pointers, e.g., Kyrie Irving, Trae Young, Chris Paul.</p>
+</div>
+<div id="average-points-per-game-vs-player-contract-salary-mean-scatterplot" class="section level2 hasAnchor" number="4.8">
+<h2><span class="header-section-number">4.8</span> Average Points per Game vs Player Contract Salary Mean (Scatterplot)<a href="results.html#average-points-per-game-vs-player-contract-salary-mean-scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
-<p>Scatterplot - sum game vs salary mean</p>
+<p>Here is a scatterplot of players’ salary related to their average points per game. We utilized geom_smooth() to fit these points, and we observed a roughly linear correlation between player salary and the average points per game. It is indicated that players who earned more points in each game on average tend to have higher salaries. One possible reason for this is that these players have more possessions of the ball during the games.</p>
+</div>
+<div id="player-contract-salary-mean-vs-total-number-of-games-conditioning-on-age-group-multi-facets-scatterplot" class="section level2 hasAnchor" number="4.9">
+<h2><span class="header-section-number">4.9</span> Player Contract Salary Mean vs Total Number of Games Conditioning on Age Group (Multi-facets Scatterplot)<a href="results.html#player-contract-salary-mean-vs-total-number-of-games-conditioning-on-age-group-multi-facets-scatterplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-25-1.png" width="672" /></p>
-<p>Heatmap</p>
+<p>Our PCA plot suggests that the sum_games has strongest association with players’ salary, sp we get a categorical scatter plot of salary mean related to this variable. We notice that there is no clear positive association in the middle age, which makes up a major part of the player population. A possible explanation for this is that there are many outliers in this group. Alternatively, in old and young age range, we can observe a more positive relationship between the sum games and salary mean.</p>
+</div>
+<div id="player-contract-salary-mean-vs-team-and-age-group-heatmap" class="section level2 hasAnchor" number="4.10">
+<h2><span class="header-section-number">4.10</span> Player Contract Salary Mean vs Team and Age Group (Heatmap)<a href="results.html#player-contract-salary-mean-vs-team-and-age-group-heatmap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><img src="finalproj_files/figure-html/unnamed-chunk-26-1.png" width="672" /></p>
+<p>Here is a heatmap regarding players’ team and age, where we observed the salary related to players’ age in each team. Three most representative teams in this plot are LAL, GSW, and DAL. In LAL, old players tend to have the highest salary mean. In GSW, middle age players tend to have high salary, such as Stephen Curry, Klay Tompson and Andrew Wiggins are all among middle age rank. In DAL, younger players tend to have higher salary, such as Tim Hardway JR. and Luca Doncic.</p>
 
+</div>
 </div>
             </section>
 

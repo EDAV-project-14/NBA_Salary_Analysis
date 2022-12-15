@@ -10,5 +10,15 @@ sources
 cleaning-transformation
 missing-value-analysis
 results
+player-contract-salary-mean-ranking-cleveland-dot-plot
+player-contract-salary-mean-distribution-q-q-plot-and-shapiro-wilk-normality-test
+relationship-between-player-contract-salary-mean-and-age-mosaic-plot
+relationship-between-player-contract-salary-mean-and-age-boxplot
+player-contract-salary-mean-for-different-teams-ridgeline-plot
+parallel-coordinate-plot
+player-contract-salary-mean-vs-all-continuous-player-statistics-pca
+average-points-per-game-vs-player-contract-salary-mean-scatterplot
+player-contract-salary-mean-vs-total-number-of-games-conditioning-on-age-group-multi-facets-scatterplot
+player-contract-salary-mean-vs-team-and-age-group-heatmap
 interactive-component
 conclusion

@@ -2,7 +2,7 @@
 
 ## Sources
 
-We scrape our data from the [BasketBall Reference](https://www.basketball-reference.com/), where we focus on players' performance in these aspects, `rank`，`player`，`position`，`age`，`team`，`start games`，`field goals`，`field attempts`，`field precision`，`3-points`，`3-points attemps`，`3-points precision`，`2-points`，`2-points attemps`，`2-points precision`，`free-throws`，`free-throws attemps`，`free-throws precision`，`rebounds`，`assists`，`steals`，`blocks`，`turnovers`，`fouls` and `points per game`. For their salaries, Basketball Reference doesn't provide the historical archive, so we use the mean of the current contracts as evaluator, ignoring the guaranteed. Here are the brief summary of player statics and contracts. 
+We scrape our data from the [BasketBall Reference](https://www.basketball-reference.com/), where we focus on players' performance in these aspects, `rank`，`player`，`position`，`age`，`team`，`start games`，`field goals`，`field attempts`，`field precision`，`3-points`，`3-points attemps`，`3-points precision`，`2-points`，`2-points attemps`，`2-points precision`，`free-throws`，`free-throws attemps`，`free-throws precision`，`rebounds`，`assists`，`steals`，`blocks`，`turnovers`，`fouls` and `points per game`. For their salaries, Basketball Reference doesn't provide the historical archive, so we use the mean of the current contracts as evaluator, ignoring the guaranteed. 
 
 <!--to add a demo showing the data summary-->
 
@@ -164,14 +164,14 @@ head(data_merged)
 <!--to numeric, isnan, change team issue-->
 **Missing Value Plot for Messy Data**
 
-We made a missing value plot using plot_missing() function from the redav package to visualize the pattern of the missing value in our original dataset. We discovered that columns of `free_throws_pct` and `x3point_pct` have the most number of rows missing:
 ```{r,fig.height=8, fig.width=20}
 plot_missing(player_stats_clean1)
 ```
 
+We made a missing value plot using plot_missing() function from the redav package to visualize the pattern of the missing value in our original dataset. We discovered that columns of `free_throws_pct` and `x3point_pct` have the most number of rows missing.
+
 **Missing Value Heatmap for Data After Cleaning**
 
-After cleaning the data, as demonstrated in section 3.2, we got the tidy and representative data. We created the missing value heatmap according to the cleaned data using ggplot function to visualize missing values in each variable columns for each NBA player. From the heatmap, we observed that there are very little missing data in our dataset after data cleaning, demonstrating the effectiveness of our preprocessing methods. Column `avg_X3points_pct` has the most missing values, considering the fact that there are fewer players who have the opportunity to shoot three pointers in a game. Thus, we filled the missing values with zeros, e.g. Ivica Zubac and Jarrett Allen with no three pointers percision records are considered as not making any three pointers. 
 ```{r, fig.height=50, fig.width=8}
 #Missing value heatmap of the merged data:
 tidy_player_stats2 <- data_merged %>% 
@@ -185,7 +185,7 @@ ggplot(tidy_player_stats2, aes(x = key, y = fct_rev(player), fill = missing)) +
   scale_fill_viridis_d() + 
   theme(axis.text.x  = element_text(angle=45, vjust=1, hjust=1, size=10), axis.text.y = element_text(size=10))
 ```
-
+After cleaning the data, as demonstrated in section 3.2, we got the tidy and representative data. We created the missing value heatmap according to the cleaned data using ggplot function to visualize missing values in each variable columns for each NBA player. From the heatmap, we observed that there are very little missing data in our dataset after data cleaning, demonstrating the effectiveness of our preprocessing methods. Column `avg_X3points_pct` has the most missing values, considering the fact that there are fewer players who have the opportunity to shoot three pointers in a game. Thus, we filled the missing values with zeros, e.g. Ivica Zubac and Jarrett Allen with no three pointers percision records are considered as not making any three pointers. 
 
 
 

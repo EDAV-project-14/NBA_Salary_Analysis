@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Conclusion | NBA Salary Predictor</title>
-  <meta name="description" content="Chapter 6 Conclusion | NBA Salary Predictor" />
+  <title>Chapter 6 Conclusion | Exploratory Data Analysis on NBA Salary</title>
+  <meta name="description" content="Chapter 6 Conclusion | Exploratory Data Analysis on NBA Salary" />
   <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Conclusion | NBA Salary Predictor" />
+  <meta property="og:title" content="Chapter 6 Conclusion | Exploratory Data Analysis on NBA Salary" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Conclusion | NBA Salary Predictor" />
+  <meta name="twitter:title" content="Chapter 6 Conclusion | Exploratory Data Analysis on NBA Salary" />
   
   
   
@@ -89,7 +89,19 @@
 <li class="chapter" data-level="3.2" data-path="data.html"><a href="data.html#cleaning-transformation"><i class="fa fa-check"></i><b>3.2</b> Cleaning / transformation</a></li>
 <li class="chapter" data-level="3.3" data-path="data.html"><a href="data.html#missing-value-analysis"><i class="fa fa-check"></i><b>3.3</b> Missing value analysis</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a></li>
+<li class="chapter" data-level="4" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>4</b> Results</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="results.html"><a href="results.html#player-contract-salary-mean-ranking-cleveland-dot-plot"><i class="fa fa-check"></i><b>4.1</b> Player Contract Salary Mean Ranking (Cleveland dot plot)</a></li>
+<li class="chapter" data-level="4.2" data-path="results.html"><a href="results.html#player-contract-salary-mean-distribution-q-q-plot-and-shapiro-wilk-normality-test"><i class="fa fa-check"></i><b>4.2</b> Player Contract Salary Mean Distribution (Q-Q plot and Shapiro-Wilk normality test)</a></li>
+<li class="chapter" data-level="4.3" data-path="results.html"><a href="results.html#relationship-between-player-contract-salary-mean-and-age-mosaic-plot"><i class="fa fa-check"></i><b>4.3</b> Relationship between Player Contract Salary Mean and Age (Mosaic plot)</a></li>
+<li class="chapter" data-level="4.4" data-path="results.html"><a href="results.html#relationship-between-player-contract-salary-mean-and-age-boxplot"><i class="fa fa-check"></i><b>4.4</b> Relationship between Player Contract Salary Mean and Age (Boxplot)</a></li>
+<li class="chapter" data-level="4.5" data-path="results.html"><a href="results.html#player-contract-salary-mean-for-different-teams-ridgeline-plot"><i class="fa fa-check"></i><b>4.5</b> Player Contract Salary Mean for Different Teams (Ridgeline plot)</a></li>
+<li class="chapter" data-level="4.6" data-path="results.html"><a href="results.html#parallel-coordinate-plot"><i class="fa fa-check"></i><b>4.6</b> Parallel Coordinate Plot</a></li>
+<li class="chapter" data-level="4.7" data-path="results.html"><a href="results.html#player-contract-salary-mean-vs-all-continuous-player-statistics-pca"><i class="fa fa-check"></i><b>4.7</b> Player Contract Salary Mean vs All Continuous Player Statistics (PCA)</a></li>
+<li class="chapter" data-level="4.8" data-path="results.html"><a href="results.html#average-points-per-game-vs-player-contract-salary-mean-scatterplot"><i class="fa fa-check"></i><b>4.8</b> Average Points per Game vs Player Contract Salary Mean (Scatterplot)</a></li>
+<li class="chapter" data-level="4.9" data-path="results.html"><a href="results.html#player-contract-salary-mean-vs-total-number-of-games-conditioning-on-age-group-multi-facets-scatterplot"><i class="fa fa-check"></i><b>4.9</b> Player Contract Salary Mean vs Total Number of Games Conditioning on Age Group (Multi-facets Scatterplot)</a></li>
+<li class="chapter" data-level="4.10" data-path="results.html"><a href="results.html#player-contract-salary-mean-vs-team-and-age-group-heatmap"><i class="fa fa-check"></i><b>4.10</b> Player Contract Salary Mean vs Team and Age Group (Heatmap)</a></li>
+</ul></li>
 <li class="chapter" data-level="5" data-path="interactive-component.html"><a href="interactive-component.html"><i class="fa fa-check"></i><b>5</b> Interactive component</a></li>
 <li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> Conclusion</a></li>
 <li class="divider"></li>
@@ -103,7 +115,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">NBA Salary Predictor</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Exploratory Data Analysis on NBA Salary</a>
           </h1>
         </div>
 
@@ -113,6 +125,11 @@
             <section class="normal" id="section-">
 <div id="conclusion" class="section level1 hasAnchor" number="6">
 <h1><span class="header-section-number">Chapter 6</span> Conclusion<a href="conclusion.html#conclusion" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In this project, we produce an exploratory data analysis on NBA players’ statistics and salaries. We utilized dot plot, heatmaps, parallel coordinate plot, and etc. to analyze the normality, modality, and distributions of the dataset. We discover that the NBA players’ salaries roughly follow a normal distribution, and there is a positive correlation between their performance and salary — the number of games, average points/min/rebounds/assists per game are positively correlated to the player salaries. We also discretize the age and salary data to categorical variables to explore the play composition in each team and how age affects the players’ salaries. We notice that major players in different groups have similar salary variance, and the players in middle age (25-33) tend to have the highest median, and there are more superstar players in peak performance that have extremely high salaries, where they are salary outliers in this category.</p>
+<p>Our figures not only show some superficial relationships and features, but also reveal some hidden information that the original data did not express. This indicates that our project not only stops at simple data analysis, but also provides a direction for continuing to explore data. For example, in our PCA analysis, we were surprised to find that the adjacent feature can represent the position information of the player (we eliminate this when cleaning data considering the ambiguity of position). The data points in the upper right corner are often inside players, where their arrows point to the same direction of rebounds and blocks in the original feature. The data points in the lower left corner are often outside players, and their arrows points to the same direction as three-pointers and free throws. In the salary ridgeline plot with respect to the player teams, we can roughly infer the team’s player composition structure (how many cores, whether it is a playoff team or not).</p>
+<p>By comparing with the reality, we conclude several limitations of our analysis. First and foremost, we do not take into account the impact of team market value and playoff performance in recent years on salaries. Some wealthy teams are more willing to pay high salaries for high-level players, while owners of small ball markets do not have the ability to afford excessive luxury taxes. Secondly, we did not take into account the impact of player injuries, trades, and off-field public opinion on their performance. For example, the sudden drop of performance caused by injury, stars with special significance to a certain team, and players with negative news influence outside the court are potential noise in the data that we are not eliminating. Lastly, for certain years, the players’ performance are not associated with their salaries. Because of the availability of the datasets, we use the mean of the 2022-2028 salaries, which could be more vulnerable to the noise mentioned above. In addition, it is too utilitarian to use rigid data to measure players, and the value of some players cannot only be expressed through these basic data.</p>
+<p>During the playoffs, the performance of key players can often determine the future of a team. Therefore, in addition to the regular season, key players’ achievement is a crucial factor. For example, Jordan Pool earns a profitable salary because of his great performance in GSW’s champion playoffs. In the future, we will consider integrating both the regular season and playoff data for more accurate analysis. To overcome the limited representation of the basic data, we will also contemplate higher-level statistics such as player plus/minus (whether a player’s presence wins points for the team), shooting efficiency (the number of points a player can make with his shots), and player defensive efficiency (how much his defense can give the opponent shooting precision drop).</p>
+<p>Throughout this project, we acquire a better understanding of the basic pipeline of explorative data analysis, regarding how informative the simple datasets can be. We master the skills to visualize the data and deliver our findings to the audience professionally using plotting languages. We also familiarized ourselves with data preprocessing techniques, and get more understanding of how to make our data tidy to serve for the more complicated analysis such as fitting and prediction in our future study.</p>
 
 </div>
             </section>

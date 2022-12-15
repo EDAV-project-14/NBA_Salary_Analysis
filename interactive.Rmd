@@ -1,3 +1,8 @@
 # Interactive component
+
+We observed a roughly linear correlation between player salary and the average points per game. It is indicated that players who earned more points in each game on average tend to have higher salaries. One possible reason for this is that these players have more possessions of the ball during the games.
+
 Put your mouse over the dots to see the salary and average points per game for each player:
 <iframe style = "border:none" src="test2.html" width="700" height="700"></iframe>
+
+Reference: https://d3-graph-gallery.com/graph/scatter_basic.html
