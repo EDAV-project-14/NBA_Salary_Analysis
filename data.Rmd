@@ -8,10 +8,159 @@ We scrape our data from the [BasketBall Reference](https://www.basketball-refere
 
 ## Cleaning / transformation
 
+```{r setup, include=FALSE}
+library(openintro)
+library(dplyr)
+library(ggplot2)
+library(gridExtra)
+library(stringr)
+library(forcats)
+library(tidyr)
+library(arrow)
+library(mi)
+library(betareg)
+library(tidyverse)
+library(redav)
+library(grid)
+library(ggridges)
+```
+
 <!--how to left join, names, team-->
+## Player Statistics Data
+```{r}
+player_stats <- read.csv('https://raw.githubusercontent.com/EDAV-project-14/NBA_Salary_Predictor/main/assets/player_stats_total.csv')
+# colSums(is.na(player_stats))
+```
+The only columns that contain missing data are X3points_pct, X2point_pct, field_goals_pct, free_throws_pct, 
+
+#Data Cleaning for player statistics data
+```{r}
+#remove "games" column and rename "games_started" column to "games":
+player_stats_game_updated <- player_stats %>% 
+                             select(-c(games)) %>% 
+                             rename(games=games_started)
+
+#select player stats data only from 2021 to 2022
+player_stats_year_updated <- player_stats_game_updated %>% 
+                             filter(year>=2021)
+
+#remove unrelated variables (X, rank, pos, field_goals, field_goals_attempts, X3points, X3_points_attempts, X2points, X2points_attempts, freethrows, freethrows_attempts, orb, drb, personal_fouls). 
+player_stats_clean1 <- player_stats_year_updated %>% 
+  select(player, age, team_id, games, min_per_game, field_goals_pct, X3points_pct, X2points_pct, free_throws_pct, trb, assists, steals, blocks, turnovers, points_per_game, year)
+
+#Generate a table that contains only the player names and the sum of games (from 2020-2021):
+player_teams <- player_stats_clean1 %>%
+                group_by(player) %>% 
+                summarise(sum_games = sum(games)) 
+```
+
+
+```{r}
+#merge
+player_stats_clean2 <- merge(player_stats_clean1, player_teams, by=c("player"))
+
+#remove observations with sum of games > 20
+player_stats_clean2_1 <- player_stats_clean2 %>% 
+                         filter(sum_games > 20)
+```
+
+
+```{r}
+#calculate weighted average
+player_stats_clean3 <- player_stats_clean2_1 %>%
+  group_by(player) %>%
+  summarise(avg_age= sum((age*games/sum_games)),
+            sum_games =sum((games)), 
+            avg_min_per_game = sum((min_per_game*games/sum_games)), 
+            avg_field_goal_pct = sum((field_goals_pct*games/sum_games)), 
+            avg_X3points_pct = sum((X3points_pct*games/sum_games)), 
+            avg_X2points_pct = sum((X2points_pct*games/sum_games)), 
+            avg_free_throws_pct = sum((free_throws_pct*games/sum_games)), 
+            avg_trb = sum((trb*games/sum_games)), 
+            avg_assists = sum((assists*games/sum_games)), 
+            avg_steals=sum((steals*games/sum_games)), 
+            avg_blocks=sum((blocks*games/sum_games)), 
+            avg_turnovers=sum((turnovers*games/sum_games)), 
+            avg_points_per_game=sum((points_per_game*games/sum_games)) )
+
+#categorize age
+player_stats_clean4 <- player_stats_clean3 %>% 
+                      mutate(age = cut(avg_age, 
+                                       breaks = c(0, 25, 33, 100), 
+                                       labels = c('Young', 'Middle', 'Old')) )
+
+player_stats_clean4 <- player_stats_clean4[, -2]
+```
+
+## Player Contract Data
+```{r}
+player_contract <- read.csv("https://raw.githubusercontent.com/EDAV-project-14/NBA_Salary_Predictor/main/assets/player_contract.csv")
+```
+
+#Data Cleanng
+```{r}
+# change all the column names
+colnames(player_contract) <- c('Rk', 'player', 'team', 
+                    'Salary2022_2023',
+                    'Salary2023_2024',
+                    'Salary2024_2025',
+                    'Salary2025_2026',
+                    'Salary2026_2027',
+                    'Salary2027_2028',
+                    'Guaranteed',
+                    'ID')
+
+# remove the first row from the data table
+player_contract = player_contract[-1, -1]
+
+# change to numeric
+player_contract$Salary2022_2023 = as.numeric(gsub("\\$", "", player_contract$Salary2022_2023))
+player_contract$Salary2023_2024 = as.numeric(gsub("\\$", "", player_contract$Salary2023_2024))
+player_contract$Salary2024_2025 = as.numeric(gsub("\\$", "", player_contract$Salary2024_2025))
+player_contract$Salary2025_2026 = as.numeric(gsub("\\$", "", player_contract$Salary2025_2026))
+player_contract$Salary2026_2027 = as.numeric(gsub("\\$", "", player_contract$Salary2026_2027))
+player_contract$Salary2027_2028 = as.numeric(gsub("\\$", "", player_contract$Salary2027_2028))
+player_contract$Guaranteed = as.numeric(gsub("\\$", "", player_contract$Guaranteed))
+
+# add new column of salary means
+player_contract$SalaryMean <- apply(player_contract[,4:9], 1, mean, na.rm = TRUE)
+player_contract
+```
+
+
+#Merge two dataset:
+```{r}
+data_merged <- merge(x=player_stats_clean4, y=player_contract, by="player", all.x = TRUE)
+data_merged <- data_merged[!duplicated(data_merged$player),]
+data_merged <- data_merged[, -c(16:23)] 
+data_merged <- data_merged %>% drop_na(SalaryMean)
+```
+
 
 ## Missing value analysis
 
 <!--to numeric, isnan, change team issue-->
+#Missing Value Plot messy data
+```{r,fig.height=4, fig.width=10}
+plot_missing(player_stats_clean1)
+```
+
+#Missing Value Heatmap clean data
+```{r, fig.height=8, fig.width=4}
+#Missing value heatmap of the merged data:
+tidy_player_stats2 <- data_merged %>% 
+    gather(key, value, -player) %>% 
+    mutate(missing = ifelse(is.na(value), "yes", "no"))
+
+ggplot(tidy_player_stats2, aes(x = key, y = fct_rev(player), fill = missing)) +
+  geom_tile(color = "white") + 
+  ggtitle("NAs Heatmap of the dataset after cleaning") +
+  ylab('') + 
+  scale_fill_viridis_d() + 
+  theme(axis.text.x  = element_text(angle=45, vjust=1, hjust=1, size=6), axis.text.y = element_text(size=5))
+```
+
+
+
 
 
