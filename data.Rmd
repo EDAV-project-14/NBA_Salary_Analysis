@@ -31,7 +31,7 @@ library(ggridges)
 player_stats <- read.csv('https://raw.githubusercontent.com/EDAV-project-14/NBA_Salary_Predictor/main/assets/player_stats_total.csv')
 # colSums(is.na(player_stats))
 ```
-The only columns that contain missing data are X3points_pct, X2point_pct, field_goals_pct, free_throws_pct, 
+
 
 
 ```{r}
@@ -127,19 +127,51 @@ data_merged <- data_merged[!duplicated(data_merged$player),]
 data_merged <- data_merged[, -c(16:23)] 
 data_merged <- data_merged %>% drop_na(SalaryMean) %>% mutate(SalaryMean=SalaryMean/10000000)
 ```
+We cleaned player_stat_total.csv and player_contract.csv separately and then merged the two datasets together. A preview of these two datasets is included in the proposal. 
 
+**Player Statistics Data Cleaning**
 
+For  player_stat_total.csv, we first dropped the player statistics collected before 2020. And then we dropped several columns that are unrelated to the contract salaries of the NBA players, including `X`, `rank`, `pos` (position of each player), and `personal_fouls`. `X` and `rank` are just two columns showing the index of each row, so we simply removed them. We dropped the position column because some players switch between multiple positions, which might cause confusion. For example, Stephen Curry plays PG and SG at the same time. The `personal_fouls` variable is not a meaningful indicator either, as it is impacted by too many unexpected variables, and the information about player performance could be better demonstrated by other variables. 
+
+We also dropped columns that are redundant, including `field_goals`, `field_goals_attempts`, `X3points`, `X3_points_attempts`, `X2points`, `X2points_attempts`, `freethrows`, `freethrows_attempts`, `orb` (offensive rebound percentage), `drb` (defensive rebound percentage). These variables are either transformed into percentages in other columns (for example, `field_goal_pct` = `field_goals_attempts`/`field_goals`*100%, so we only kept `field_goal_pct`, and dropped `field_goals_attempts` as well as `field_goals`), or that the information has already been addressed in other columns (for example, `trb` (total rebound percentage) =  `orb` (offensive rebound percentage) + `drb` (defensive rebound percentage), so we only kept `trb`). We also dropped players that have played fewer than 20 games in total from 2021 to 2022, since the statistics are less meaningful when the number of games is too small.
+
+The next step was to calculate the weighted average of each variable. We multiplied them by the ratio of the number of games per season to the total number of games of each player from 2021 to 2022. After this step, the player column becomes unique, meaning that one row corresponds to one specific player.
+
+The last step of cleaning player_stat_total.csv was to split the players into three groups by their age, as there are age limitations and restrictions for athletes.  We categorize them into young, middle, and old categories according to the thresholds 25 and 33
+
+Here is a preview of the cleaned player_stat_total.csv:
+```{r}
+head(player_stats_clean4)
+```
+**Player Contract Salary Data Cleaning**
+
+The original player contract dataset includes players’ name, team and their yearly contract salaries until 2028. Since the contract salary column was in character format, we transformed these columns into the numerical format. After that, we utilized mutate() function to add an additional column of contract salary mean by taking the average of all the contract salaries for each player. 
+
+Here is a preview of the cleaned player_contract.csv:
+```{r}
+head(player_contract)
+```
+**Final Dataset After Cleaning**
+
+Finally, we utilized merge() function to left join the cleaned player statistic dataset and cleaned player contract dataset by player name to get a final merged dataset for our project.We dropped the guaranteed salary column because it is a redundant variable, as all the contracts signed will be guaranteed for the remainder of the season. We also dropped the player id column as we already have the player name column to represent each player. Lastly, we simply divide the `SalaryMean` by 10000000 to make it more readable. 
+
+And here’s a preview of the final cleaned dataset data_merged.csv:
+```{r}
+head(data_merged)
+```
 ## Missing value analysis
 
 <!--to numeric, isnan, change team issue-->
-Missing Value Plot messy data
+**Missing Value Plot for Messy Data**
 
-```{r,fig.height=4, fig.width=20}
+We made a missing value plot using plot_missing() function from the redav package to visualize the pattern of the missing value in our original dataset. We discovered that columns of `free_throws_pct` and `x3point_pct` have the most number of rows missing:
+```{r,fig.height=8, fig.width=20}
 plot_missing(player_stats_clean1)
 ```
 
-Missing Value Heatmap clean data
+**Missing Value Heatmap for Data After Cleaning**
 
+After cleaning the data, as demonstrated in section 3.2, we got the tidy and representative data. We created the missing value heatmap according to the cleaned data using ggplot function to visualize missing values in each variable columns for each NBA player. From the heatmap, we observed that there are very little missing data in our dataset after data cleaning, demonstrating the effectiveness of our preprocessing methods. Column `avg_X3points_pct` has the most missing values, considering the fact that there are fewer players who have the opportunity to shoot three pointers in a game. Thus, we filled the missing values with zeros, e.g. Ivica Zubac and Jarrett Allen with no three pointers percision records are considered as not making any three pointers. 
 ```{r, fig.height=50, fig.width=8}
 #Missing value heatmap of the merged data:
 tidy_player_stats2 <- data_merged %>% 
@@ -151,7 +183,7 @@ ggplot(tidy_player_stats2, aes(x = key, y = fct_rev(player), fill = missing)) +
   ggtitle("NAs Heatmap of the dataset after cleaning") +
   ylab('') + 
   scale_fill_viridis_d() + 
-  theme(axis.text.x  = element_text(angle=45, vjust=1, hjust=1, size=12), axis.text.y = element_text(size=12))
+  theme(axis.text.x  = element_text(angle=45, vjust=1, hjust=1, size=10), axis.text.y = element_text(size=10))
 ```
 
 
