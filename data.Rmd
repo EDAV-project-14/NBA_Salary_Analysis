@@ -125,7 +125,7 @@ player_contract$SalaryMean <- apply(player_contract[,4:9], 1, mean, na.rm = TRUE
 data_merged <- merge(x=player_stats_clean4, y=player_contract, by="player", all.x = TRUE)
 data_merged <- data_merged[!duplicated(data_merged$player),]
 data_merged <- data_merged[, -c(16:23)] 
-data_merged <- data_merged %>% drop_na(SalaryMean)
+data_merged <- data_merged %>% drop_na(SalaryMean) %>% mutate(SalaryMean=SalaryMean/10000000)
 ```
 
 
@@ -140,7 +140,7 @@ plot_missing(player_stats_clean1)
 
 Missing Value Heatmap clean data
 
-```{r, fig.height=30, fig.width=8}
+```{r, fig.height=50, fig.width=8}
 #Missing value heatmap of the merged data:
 tidy_player_stats2 <- data_merged %>% 
     gather(key, value, -player) %>% 
@@ -151,7 +151,7 @@ ggplot(tidy_player_stats2, aes(x = key, y = fct_rev(player), fill = missing)) +
   ggtitle("NAs Heatmap of the dataset after cleaning") +
   ylab('') + 
   scale_fill_viridis_d() + 
-  theme(axis.text.x  = element_text(angle=45, vjust=1, hjust=1, size=6), axis.text.y = element_text(size=5))
+  theme(axis.text.x  = element_text(angle=45, vjust=1, hjust=1, size=12), axis.text.y = element_text(size=12))
 ```
 
 

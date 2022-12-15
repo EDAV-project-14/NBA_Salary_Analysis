@@ -28,7 +28,7 @@ Mosaic plot
 ```{r}
 data_merged_salary_category <- data_merged %>% 
   mutate(SalaryCategory = cut(SalaryMean, 
-                              breaks = c(0, 6339080, 31322024, 100000000), 
+                              breaks = c(0, 6339080/10000000, 31322024/10000000, 100000000/10000000), 
                               labels = c('Low', 'Middle', 'High')) ) %>%
   mutate(freq=1)
 colors <- c("#ff99ff", "#cc9966") 
@@ -64,7 +64,7 @@ ggplot(data_merged, aes(x=age, y=SalaryMean)) +
 
 Ridgeline plot
 
-```{r}
+```{r, fig.height=20, fig.width=8}
 ggplot(data_merged, aes(x = SalaryMean, y = team)) +
   geom_density_ridges(fill = "lightblue") +
   ggtitle("Salary by Team") +
